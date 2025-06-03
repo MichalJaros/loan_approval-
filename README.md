@@ -67,66 +67,134 @@ Build and compare multiple classification models to predict whether a loan appli
 ### Exploratory Data Analysis (EDA)
 
 1. **Inspecting Data Structure**  
-   ```python
-   dataset = pd.read_csv('loan_approval_dataset.csv')
-   dataset.info()
-   dataset.describe()
-2. **Visualizing Categorical Feature Distributions**
-•	Bar plots of education vs. loan_status
-•	Countplots for gender, married, self_employed, property_area
-3. **Correlation Analysis (Numerical Features)**
-•	Compute correlation matrix for numeric columns (applicant_income, coapplicant_income, loan_amount, loan_amount_term, credit_history)
-•	Plot heatmap with seaborn
-**Data Preprocessing**
-1.	Dropping Identifiers
-2.	Handling Missing Values (e.g., using median for numerics, mode for categoricals)
-3.	Encoding Categorical Variables
-4.	Splitting into Features and Target
-5.	Train/Test Split (Stratified)
-6.	Standard Scaling
-**Principal Component Analysis (PCA)**
-1.	Compute Covariance Matrix and Eigenvalues
-2.	Calculate Explained Variance Ratio and Determine Number of Components
-3.	Apply PCA Transformation
-**Model Training and Comparison**
-Train and 10-fold cross-validate the following classifiers on the PCA-transformed training data:
-•	Logistic Regression
-•	Decision Tree
-•	Random Forest
-•	Naive Bayes
-•	K-Nearest Neighbors (KNN)
-•	Support Vector Machine (SVM)
-**Hyperparameter Tuning**
-Perform grid search for the best SVM parameters using GridSearchCV
-Log all hyperparameters and metrics with MLflow
-**Final Evaluation**
-1.	Train Final Model
-2.	Predict on Test Set
-3.	Compute Performance Metrics
-4.	Log Metrics and Confusion Matrix Plot to MLflow
-**Technologies**
-•	Python
-•	NumPy
-•	Pandas
-•	Matplotlib
-•	Seaborn
-•	Statsmodels
-•	scikit-learn
-•	XGBoost
-•	MLflow
-•	Jupyter Notebook
-**Usage**
-1.	Clone the repository
-2.	Launch Jupyter Notebook
-3.	Open and run Loan_approval_final.ipynb
-o	Perform EDA and feature engineering in the first sections.
-o	Execute the cells in order to train and evaluate models.
-o	View and compare MLflow experiment runs (if MLflow server is running).
-4.	To run scripts directly
-o	Preprocess data and save cleaned DataFrame as CSV
-o	Execute scripts/train_model.py (if provided)
-o	Check MLflow UI for experiment tracking
-**Contact**
-This project is released under an open-source license.
-•	LinkedIn: michał-jaros-88572821a
-•	E-mail: michal.marek.jaros@gmail.com
+   - Load the dataset and view its basic information (e.g., number of rows, columns, data types).  
+   - Examine summary statistics to understand distributions of numerical features.
+
+2. **Visualizing Categorical Feature Distributions**  
+   - Create bar plots or countplots to compare categories (e.g., education vs. loan_status).  
+   - Analyze distributions of `gender`, `married`, `self_employed`, `property_area` against approval status.
+
+3. **Correlation Analysis (Numerical Features)**  
+   - Compute the correlation matrix for numeric columns (`applicant_income`, `coapplicant_income`, `loan_amount`, `loan_amount_term`, `credit_history`).  
+   - Visualize the correlation matrix (e.g., using a heatmap) to identify strong relationships.
+
+---
+
+### Data Preprocessing
+
+1. **Dropping Identifiers**  
+   - Remove non-predictive ID columns (e.g., `loan_id`).
+
+2. **Handling Missing Values**  
+   - Fill missing values in numeric features (e.g., with median).  
+   - Fill missing values in categorical features (e.g., with mode).
+
+3. **Encoding Categorical Variables**  
+   - Convert categorical columns (e.g., `gender`, `married`, `dependents`, `education`, `self_employed`, `property_area`, `loan_status`) into numeric labels.
+
+4. **Splitting into Features and Target**  
+   - Separate the target variable (`loan_status`) from the predictor features.
+
+5. **Train/Test Split (Stratified)**  
+   - Divide the data into training and testing sets, preserving the class distribution of the target.
+
+6. **Standard Scaling**  
+   - Standardize numeric features to have zero mean and unit variance.
+
+---
+
+### Principal Component Analysis (PCA)
+
+1. **Compute Covariance Matrix and Eigenvalues**  
+   - Analyze feature covariance to understand variance distribution.
+
+2. **Calculate Explained Variance Ratio and Determine Number of Components**  
+   - Identify how many principal components are needed to explain a desired proportion of variance.
+
+3. **Apply PCA Transformation**  
+   - Transform the standardized training and test data into the new PCA feature space.
+
+---
+
+### Model Training and Comparison
+
+- **Classifiers Trained (with 10-fold cross-validation on PCA-transformed data):**  
+  - Logistic Regression  
+  - Decision Tree  
+  - Random Forest  
+  - Naive Bayes  
+  - K-Nearest Neighbors (KNN)  
+  - Support Vector Machine (SVM)
+
+- **Evaluation Metric:**  
+  - ROC AUC score computed for each classifier to compare performance.
+
+---
+
+### Hyperparameter Tuning
+
+1. **Grid Search for SVM Parameters**  
+   - Define a grid of candidate values for `C`, `kernel`, and (if applicable) `gamma`.  
+   - Use cross-validation to select the best combination based on a chosen scoring metric (e.g., precision).
+
+2. **Experiment Tracking with MLflow**  
+   - Log hyperparameters, performance metrics, and model artifacts to MLflow for comparison and reproducibility.
+
+---
+
+### Final Evaluation
+
+1. **Train Final Model**  
+   - Retrain the best-performing classifier (e.g., tuned SVM) on the full training set.
+
+2. **Predict on Test Set**  
+   - Generate predictions for the hold-out test data.
+
+3. **Compute Performance Metrics**  
+   - Evaluate the final model using metrics such as accuracy, precision, recall, and confusion matrix.
+
+4. **Log Metrics and Artifacts to MLflow**  
+   - Record final test metrics and any relevant plots (e.g., confusion matrix) as MLflow artifacts.
+
+---
+
+## Technologies
+
+- Python  
+- NumPy  
+- Pandas  
+- Matplotlib  
+- Seaborn  
+- Statsmodels  
+- scikit-learn  
+- XGBoost  
+- MLflow  
+- Jupyter Notebook  
+
+---
+
+## Usage
+
+1. **Obtain the project**  
+   - Sklonuj lub pobierz repozytorium na swój komputer.
+
+2. **Uruchomienie Jupyter Notebook**  
+   - Otwórz środowisko Jupyter Notebook i załaduj plik `Loan_approval_final.ipynb`.
+
+3. **Praca w notatniku**  
+   - W pierwszych sekcjach wykonaj eksploracyjną analizę danych (EDA) oraz inżynierię cech.  
+   - Następnie kontynuuj uruchamianie komórek krok po kroku, aby wytrenować i ocenić modele.  
+   - Jeśli korzystasz z MLflow, możesz porównywać przebiegi eksperymentów w interfejsie MLflow.
+
+4. **Alternatywne uruchomienie skryptów**  
+   - Przygotuj dane (oczyszczenie, transformacje, zapis do pliku CSV).  
+   - Uruchom skrypt służący do strojenia hiperparametrów oraz treningu modelu (jeśli jest dostępny w folderze `scripts`).  
+   - Monitoruj przebieg eksperymentów i wyniki w interfejsie MLflow.
+
+---
+
+## Contact
+
+Projekt udostępniony jest na licencji otwartej.  
+- LinkedIn: [michał-jaros-88572821a](https://www.linkedin.com/in/michał-jaros-88572821a/)  
+- E-mail: michal.marek.jaros@gmail.com  
