@@ -1,4 +1,4 @@
-Loan Approval Prediction Pipeline
+# Loan Approval Prediction Pipeline
 
 A complete machine learning pipeline for predicting loan approval status. This project performs data loading, exploratory data analysis, preprocessing (including scaling and PCA), model comparison (Logistic Regression, Decision Tree, Random Forest, Naive Bayes, KNN, SVM), hyperparameter tuning, and final evaluation.  
 
