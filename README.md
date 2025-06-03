@@ -71,24 +71,24 @@ Build and compare multiple classification models to predict whether a loan appli
    dataset = pd.read_csv('loan_approval_dataset.csv')
    dataset.info()
    dataset.describe()
-2. Visualizing Categorical Feature Distributions
+2. **Visualizing Categorical Feature Distributions**
 •	Bar plots of education vs. loan_status
 •	Countplots for gender, married, self_employed, property_area
-3. Correlation Analysis (Numerical Features)
+3. **Correlation Analysis (Numerical Features)**
 •	Compute correlation matrix for numeric columns (applicant_income, coapplicant_income, loan_amount, loan_amount_term, credit_history)
 •	Plot heatmap with seaborn
-Data Preprocessing
+**Data Preprocessing**
 1.	Dropping Identifiers
 2.	Handling Missing Values (e.g., using median for numerics, mode for categoricals)
 3.	Encoding Categorical Variables
 4.	Splitting into Features and Target
 5.	Train/Test Split (Stratified)
 6.	Standard Scaling
-Principal Component Analysis (PCA)
+**Principal Component Analysis (PCA)**
 1.	Compute Covariance Matrix and Eigenvalues
 2.	Calculate Explained Variance Ratio and Determine Number of Components
 3.	Apply PCA Transformation
-Model Training and Comparison
+**Model Training and Comparison**
 Train and 10-fold cross-validate the following classifiers on the PCA-transformed training data:
 •	Logistic Regression
 •	Decision Tree
@@ -96,15 +96,15 @@ Train and 10-fold cross-validate the following classifiers on the PCA-transforme
 •	Naive Bayes
 •	K-Nearest Neighbors (KNN)
 •	Support Vector Machine (SVM)
-Hyperparameter Tuning
+**Hyperparameter Tuning**
 Perform grid search for the best SVM parameters using GridSearchCV
 Log all hyperparameters and metrics with MLflow
-Final Evaluation
+**Final Evaluation**
 1.	Train Final Model
 2.	Predict on Test Set
 3.	Compute Performance Metrics
 4.	Log Metrics and Confusion Matrix Plot to MLflow
-Technologies
+**Technologies**
 •	Python
 •	NumPy
 •	Pandas
@@ -115,7 +115,7 @@ Technologies
 •	XGBoost
 •	MLflow
 •	Jupyter Notebook
-Usage
+**Usage**
 1.	Clone the repository
 2.	Launch Jupyter Notebook
 3.	Open and run Loan_approval_final.ipynb
@@ -126,7 +126,7 @@ o	View and compare MLflow experiment runs (if MLflow server is running).
 o	Preprocess data and save cleaned DataFrame as CSV
 o	Execute scripts/train_model.py (if provided)
 o	Check MLflow UI for experiment tracking
-Contact
+**Contact**
 This project is released under an open-source license.
 •	LinkedIn: michał-jaros-88572821a
 •	E-mail: michal.marek.jaros@gmail.com
