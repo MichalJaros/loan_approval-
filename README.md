@@ -176,25 +176,26 @@ Build and compare multiple classification models to predict whether a loan appli
 ## Usage
 
 1. **Obtain the project**  
-   - Sklonuj lub pobierz repozytorium na swój komputer.
+   - Clone or download the repository to your computer.
 
-2. **Uruchomienie Jupyter Notebook**  
-   - Otwórz środowisko Jupyter Notebook i załaduj plik `Loan_approval_final.ipynb`.
+2. **Running Jupyter Notebook**  
+   - Open the Jupyter Notebook environment and load the file `Loan_approval_final.ipynb`.
 
-3. **Praca w notatniku**  
-   - W pierwszych sekcjach wykonaj eksploracyjną analizę danych (EDA) oraz inżynierię cech.  
-   - Następnie kontynuuj uruchamianie komórek krok po kroku, aby wytrenować i ocenić modele.  
-   - Jeśli korzystasz z MLflow, możesz porównywać przebiegi eksperymentów w interfejsie MLflow.
+3. **Working in the notebook**  
+   - In the initial sections, perform exploratory data analysis (EDA) and feature engineering.
+   - Next, continue running the cells step by step to train and evaluate the models.
+   - If you are using MLflow, you can compare experiment runs in the MLflow interface.
 
-4. **Alternatywne uruchomienie skryptów**  
-   - Przygotuj dane (oczyszczenie, transformacje, zapis do pliku CSV).  
-   - Uruchom skrypt służący do strojenia hiperparametrów oraz treningu modelu (jeśli jest dostępny w folderze `scripts`).  
-   - Monitoruj przebieg eksperymentów i wyniki w interfejsie MLflow.
+4. **Alternative script execution**  
+   - Prepare the data (cleaning, transformations, saving to a CSV file).
+   - Run the script for hyperparameter tuning and model training (if available in the `scripts` folder).
+   - Monitor experiment runs and results in the MLflow interface.
+
 
 ---
 
 ## Contact
 
-Projekt udostępniony jest na licencji otwartej.  
+The project is shared under an open license.
 - LinkedIn: [michał-jaros-88572821a](https://www.linkedin.com/in/michał-jaros-88572821a/)  
 - E-mail: michal.marek.jaros@gmail.com  
